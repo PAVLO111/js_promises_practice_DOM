@@ -31,8 +31,6 @@ const firstPromise = new Promise((resolve, reject) => {
   // div.textContent = 'First promise was rejected';
   div.textContent = errorMessage.message;
   document.body.append(div);
-
-  return errorMessage;
 });
 
 // ------------------------------------------------
