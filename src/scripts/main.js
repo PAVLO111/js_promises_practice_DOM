@@ -6,7 +6,7 @@ const firstPromise = new Promise((resolve, reject) => {
     reject(new Error('First promise was rejected'));
   }, 3000);
 
-  const onClick = (evet) => {
+  const onClick = (event) => {
     if (event.button === 0) {
       clearTimeout(timer);
       document.removeEventListener('click', onClick);
@@ -44,7 +44,7 @@ firstPromise.catch((error) => {
   div.textContent = 'First promise was rejected';
   document.body.append(div);
 
-  return error; // ← додай цей рядок!
+  return error;
 });
 
 // ------------------------------------------------
@@ -57,7 +57,7 @@ const secondPromise = new Promise((resolve) => {
     resolve('Second promise was resolved');
   };
 
-  const onRightClick = (evet) => {
+  const onRightClick = (event) => {
     event.preventDefault();
     document.removeEventListener('click', onLeftClick);
     document.removeEventListener('contextmenu', onRightClick);
@@ -74,6 +74,15 @@ secondPromise.then(() => {
   div.dataset.qa = 'notification';
   div.className = 'success';
   div.textContent = 'Second promise was resolved';
+  document.body.append(div);
+});
+
+secondPromise.catch((errorMessage) => {
+  const div = document.createElement('div');
+
+  div.dataset.qa = 'notification';
+  div.className = 'error';
+  div.textContent = 'Second promise was rejected';
   document.body.append(div);
 });
 
@@ -94,7 +103,7 @@ const thirdPromise = new Promise((resolve) => {
     }
   };
 
-  const onRightClick = (evet) => {
+  const onRightClick = (event) => {
     event.preventDefault();
     rightClicked = true;
 
@@ -115,5 +124,14 @@ thirdPromise.then(() => {
   div.dataset.qa = 'notification';
   div.className = 'success';
   div.textContent = 'Third promise was resolved';
+  document.body.append(div);
+});
+
+thirdPromise.catch((errorMessage) => {
+  const div = document.createElement('div');
+
+  div.dataset.qa = 'notification';
+  div.className = 'error';
+  div.textContent = 'Third promise was rejected';
   document.body.append(div);
 });
