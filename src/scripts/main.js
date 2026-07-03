@@ -39,7 +39,7 @@ firstPromise
 
 // Second Promise
 const secondPromise = new Promise((resolve) => {
-  const onLeftClick = () => {
+  const onLeftClick = (event) => {
     document.removeEventListener('click', onLeftClick);
     document.removeEventListener('contextmenu', onRightClick);
     resolve('Second promise was resolved');
@@ -73,7 +73,7 @@ const thirdPromise = new Promise((resolve) => {
   let leftClicked = false;
   let rightClicked = false;
 
-  const onLeftClick = () => {
+  const onLeftClick = (event) => {
     leftClicked = true;
 
     if (leftClicked && rightClicked) {
@@ -103,7 +103,6 @@ thirdPromise.then((message) => {
 
   div.dataset.qa = 'notification';
   div.className = 'success';
-  // div.textContent = 'Third promise was resolved';
   div.textContent = message;
   document.body.append(div);
 });
