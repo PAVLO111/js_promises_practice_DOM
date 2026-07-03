@@ -15,18 +15,14 @@ const firstPromise = new Promise((resolve, reject) => {
   };
 
   document.addEventListener('click', onClick);
-});
-
-firstPromise.then(() => {
+}).then(() => {
   const div = document.createElement('div');
 
   div.dataset.qa = 'notification';
   div.className = 'success';
   div.textContent = 'First promise was resolved';
   document.body.append(div);
-});
-
-firstPromise.catch((error) => {
+}).catch((error) => {
   const div = document.createElement('div');
 
   div.dataset.qa = 'notification';
