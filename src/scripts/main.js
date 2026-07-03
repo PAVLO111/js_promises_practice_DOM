@@ -17,24 +17,14 @@ const firstPromise = new Promise((resolve, reject) => {
   document.addEventListener('click', onClick);
 });
 
-firstPromise.then(
-  () => {
-    const div = document.createElement('div');
+firstPromise.then(() => {
+  const div = document.createElement('div');
 
-    div.dataset.qa = 'notification';
-    div.className = 'success';
-    div.textContent = 'First promise was resolved';
-    document.body.append(div);
-  },
-  (_error) => {
-    const div = document.createElement('div');
-
-    div.dataset.qa = 'notification';
-    div.className = 'error';
-    div.textContent = 'First promise was rejected';
-    document.body.append(div);
-  },
-);
+  div.dataset.qa = 'notification';
+  div.className = 'success';
+  div.textContent = 'First promise was resolved';
+  document.body.append(div);
+});
 
 firstPromise.catch((error) => {
   const div = document.createElement('div');
