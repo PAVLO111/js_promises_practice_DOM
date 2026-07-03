@@ -23,16 +23,16 @@ const firstPromise = new Promise((resolve, reject) => {
   // div.textContent = 'First promise was resolved';
   div.textContent = message;
   document.body.append(div);
-}).catch((error) => {
+}).catch((errorMessage) => {
   const div = document.createElement('div');
 
   div.dataset.qa = 'notification';
   // div.className = 'error';
-  div.className = error.message;
+  div.className = errorMessage.message;
   div.textContent = 'First promise was rejected';
   document.body.append(div);
 
-  return error;
+  return errorMessage;
 });
 
 // ------------------------------------------------
@@ -66,13 +66,13 @@ secondPromise.then((message) => {
   document.body.append(div);
 });
 
-secondPromise.catch((error) => {
+secondPromise.catch((errorMessage) => {
   const div = document.createElement('div');
 
   div.dataset.qa = 'notification';
   div.className = 'error';
   // div.textContent = 'Second promise was rejected';
-  div.textContent = error.message;
+  div.textContent = errorMessage.message;
   document.body.append(div);
 });
 
@@ -118,12 +118,12 @@ thirdPromise.then((message) => {
   document.body.append(div);
 });
 
-thirdPromise.catch((error) => {
+thirdPromise.catch((errorMessage) => {
   const div = document.createElement('div');
 
   div.dataset.qa = 'notification';
   div.className = 'error';
   // div.textContent = 'Third promise was rejected';
-  div.textContent = error.message;
+  div.textContent = errorMessage.message;
   document.body.append(div);
 });
