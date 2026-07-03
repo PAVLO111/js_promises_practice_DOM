@@ -15,23 +15,25 @@ const firstPromise = new Promise((resolve, reject) => {
   };
 
   document.addEventListener('click', onClick);
-}).then((message) => {
-  const div = document.createElement('div');
-
-  div.dataset.qa = 'notification';
-  div.className = 'success';
-  // div.textContent = 'First promise was resolved';
-  div.textContent = message;
-  document.body.append(div);
-}).catch((errorMessage) => {
-  const div = document.createElement('div');
-
-  div.dataset.qa = 'notification';
-  div.className = 'error';
-  // div.textContent = 'First promise was rejected';
-  div.textContent = errorMessage.message;
-  document.body.append(div);
 });
+
+firstPromise
+ .then((message) => {
+   const div = document.createElement('div');
+
+   div.dataset.qa = 'notification';
+   div.className = 'success';
+   div.textContent = message;
+   document.body.append(div);
+ })
+ .catch((errorMessage) => {
+   const div = document.createElement('div');
+
+   div.dataset.qa = 'notification';
+   div.className = 'error';
+   div.textContent = errorMessage.message;
+   document.body.append(div);
+ });
 
 // ------------------------------------------------
 
