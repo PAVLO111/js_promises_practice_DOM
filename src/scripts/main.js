@@ -66,16 +66,6 @@ secondPromise.then((message) => {
   document.body.append(div);
 });
 
-secondPromise.catch((errorMessage) => {
-  const div = document.createElement('div');
-
-  div.dataset.qa = 'notification';
-  div.className = 'error';
-  // div.textContent = 'Second promise was rejected';
-  div.textContent = errorMessage.message;
-  document.body.append(div);
-});
-
 // ------------------------------------------------
 
 // Third Promise
@@ -115,15 +105,5 @@ thirdPromise.then((message) => {
   div.className = 'success';
   // div.textContent = 'Third promise was resolved';
   div.textContent = message;
-  document.body.append(div);
-});
-
-thirdPromise.catch((errorMessage) => {
-  const div = document.createElement('div');
-
-  div.dataset.qa = 'notification';
-  div.className = 'error';
-  // div.textContent = 'Third promise was rejected';
-  div.textContent = errorMessage.message;
   document.body.append(div);
 });
