@@ -6,8 +6,8 @@ const firstPromise = new Promise((resolve, reject) => {
     reject(new Error('First promise was rejected'));
   }, 3000);
 
-  const onClick = (event) => {
-    if (event.button === 0) {
+  const onClick = (e) => {
+    if (e.button === 0) {
       clearTimeout(timer);
       document.removeEventListener('click', onClick);
       resolve('First promise was resolved');
@@ -18,35 +18,35 @@ const firstPromise = new Promise((resolve, reject) => {
 });
 
 firstPromise
- .then((message) => {
-   const div = document.createElement('div');
+  .then((message) => {
+    const div = document.createElement('div');
 
-   div.dataset.qa = 'notification';
-   div.className = 'success';
-   div.textContent = message;
-   document.body.append(div);
- })
- .catch((errorMessage) => {
-   const div = document.createElement('div');
+    div.dataset.qa = 'notification';
+    div.className = 'success';
+    div.textContent = message;
+    document.body.append(div);
+  })
+  .catch((errorMessage) => {
+    const div = document.createElement('div');
 
-   div.dataset.qa = 'notification';
-   div.className = 'error';
-   div.textContent = errorMessage.message;
-   document.body.append(div);
- });
+    div.dataset.qa = 'notification';
+    div.className = 'error';
+    div.textContent = errorMessage.message;
+    document.body.append(div);
+  });
 
 // ------------------------------------------------
 
 // Second Promise
 const secondPromise = new Promise((resolve) => {
-  const onLeftClick = (event) => {
+  const onLeftClick = (e) => {
     document.removeEventListener('click', onLeftClick);
     document.removeEventListener('contextmenu', onRightClick);
     resolve('Second promise was resolved');
   };
 
-  const onRightClick = (event) => {
-    event.preventDefault();
+  const onRightClick = (e) => {
+    e.preventDefault();
     document.removeEventListener('click', onLeftClick);
     document.removeEventListener('contextmenu', onRightClick);
     resolve('Second promise was resolved');
@@ -73,7 +73,7 @@ const thirdPromise = new Promise((resolve) => {
   let leftClicked = false;
   let rightClicked = false;
 
-  const onLeftClick = (event) => {
+  const onLeftClick = (e) => {
     leftClicked = true;
 
     if (leftClicked && rightClicked) {
@@ -83,8 +83,8 @@ const thirdPromise = new Promise((resolve) => {
     }
   };
 
-  const onRightClick = (event) => {
-    event.preventDefault();
+  const onRightClick = (e) => {
+    e.preventDefault();
     rightClicked = true;
 
     if (leftClicked && rightClicked) {
