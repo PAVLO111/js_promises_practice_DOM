@@ -15,18 +15,20 @@ const firstPromise = new Promise((resolve, reject) => {
   };
 
   document.addEventListener('click', onClick);
-}).then(() => {
+}).then((message) => {
   const div = document.createElement('div');
 
   div.dataset.qa = 'notification';
   div.className = 'success';
-  div.textContent = 'First promise was resolved';
+  // div.textContent = 'First promise was resolved';
+  div.textContent = message;
   document.body.append(div);
 }).catch((error) => {
   const div = document.createElement('div');
 
   div.dataset.qa = 'notification';
-  div.className = 'error';
+  // div.className = 'error';
+  div.className = error.message;
   div.textContent = 'First promise was rejected';
   document.body.append(div);
 
@@ -54,21 +56,23 @@ const secondPromise = new Promise((resolve) => {
   document.addEventListener('contextmenu', onRightClick);
 });
 
-secondPromise.then(() => {
+secondPromise.then((message) => {
   const div = document.createElement('div');
 
   div.dataset.qa = 'notification';
   div.className = 'success';
-  div.textContent = 'Second promise was resolved';
+  // div.textContent = 'Second promise was resolved';
+  div.textContent = message;
   document.body.append(div);
 });
 
-secondPromise.catch((errorMessage) => {
+secondPromise.catch((error) => {
   const div = document.createElement('div');
 
   div.dataset.qa = 'notification';
   div.className = 'error';
-  div.textContent = 'Second promise was rejected';
+  // div.textContent = 'Second promise was rejected';
+  div.textContent = error.message;
   document.body.append(div);
 });
 
@@ -104,20 +108,22 @@ const thirdPromise = new Promise((resolve) => {
   document.addEventListener('contextmenu', onRightClick);
 });
 
-thirdPromise.then(() => {
+thirdPromise.then((message) => {
   const div = document.createElement('div');
 
   div.dataset.qa = 'notification';
   div.className = 'success';
-  div.textContent = 'Third promise was resolved';
+  // div.textContent = 'Third promise was resolved';
+  div.textContent = message;
   document.body.append(div);
 });
 
-thirdPromise.catch((errorMessage) => {
+thirdPromise.catch((error) => {
   const div = document.createElement('div');
 
   div.dataset.qa = 'notification';
   div.className = 'error';
-  div.textContent = 'Third promise was rejected';
+  // div.textContent = 'Third promise was rejected';
+  div.textContent = error.message;
   document.body.append(div);
 });
