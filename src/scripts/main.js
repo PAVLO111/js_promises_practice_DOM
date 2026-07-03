@@ -27,9 +27,9 @@ const firstPromise = new Promise((resolve, reject) => {
   const div = document.createElement('div');
 
   div.dataset.qa = 'notification';
-  // div.className = 'error';
-  div.className = errorMessage.message;
-  div.textContent = 'First promise was rejected';
+  div.className = 'error';
+  // div.textContent = 'First promise was rejected';
+  div.textContent = errorMessage.message;
   document.body.append(div);
 
   return errorMessage;
